@@ -1,0 +1,14 @@
+services:
+  isolir:
+    image: rtsp/lighttpd
+    container_name: isolir
+    volumes:
+      - ./html:/var/www/html:ro
+    networks:
+      - cloudflared
+    ports:
+      - "1800:80"  # Opsional—untuk tes lokal
+
+networks:
+  cloudflared:
+    external: true
